@@ -1,0 +1,16 @@
+{
+
+    "Guerreiro":{
+            "hp_max": 120,
+            "dano": 15
+        }
+    ,
+    "Mago":{
+            "hp_max": 80,
+            "dano": 25
+        },
+    "Arqueiro":{
+            "hp_max": 100,
+            "dano": 20
+        }
+}
