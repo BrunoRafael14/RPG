@@ -1,3 +1,9 @@
 .venv.
 init.py
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*$py.class
+*.cpython-*.pyc

@@ -25,9 +25,9 @@ def menu():
 #Função para definir a classe do personagem
 classes = {1:"Guerreiro", 2:"Mago", 3:"Arqueiro"}
 
-def definindo_classe(class_player):
-    class_player = classes[class_player]
-    if class_player not in classes:
+def definindo_classe(number_class):
+    class_player = classes[number_class]
+    if class_player not in classes[number_class]:
         print("Classe desconhecida")
 
     with open('data/classes.json', 'r') as busca_class:
