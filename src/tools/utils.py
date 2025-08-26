@@ -1,7 +1,7 @@
 import json
 import os
 import time
-from src.models.entities.player import Player
+from models.entities.player import Player
 
 
 #Função para definir a classe do personagem
