@@ -1,0 +1,10 @@
+{
+    "save01": {
+        "nome": "Bruno",
+        "level": 1,
+        "classe": "Mago",
+        "hp": 80,
+        "hp_max": 80,
+        "dano": 25
+    }
+}
