@@ -84,3 +84,15 @@ def menu():
     else:
         exit()
 
+
+# Menu de Batalha
+def menu_batalha():
+    while True:
+        respostas = [1, 2, 3]
+        print("1- Atacar \n2- Itens \n3- Trocar Arma")
+        resposta = int(input())
+        if resposta in respostas:
+            break
+        else:
+            print("Ação Inválida")
+            time.sleep(1)
