@@ -7,3 +7,9 @@ class Player:
         self.hp_max = hp_max
         self.dano = dano
 
+
+    def atacar(self, inimigo):
+        dano_ataque = self.dano 
+        inimigo.hp -= self.dano
+        print(f"{inimigo.nome} e sofreu {self.dano} de dano!")
+

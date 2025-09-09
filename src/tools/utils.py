@@ -96,3 +96,5 @@ def menu_batalha():
         else:
             print("Ação Inválida")
             time.sleep(1)
+
+
