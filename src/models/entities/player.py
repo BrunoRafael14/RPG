@@ -6,6 +6,7 @@ class Player:
         self.hp = hp_max
         self.hp_max = hp_max
         self.dano = dano
+        self.localizacao = 0
 
 
     def atacar(self, inimigo):

@@ -2,6 +2,8 @@ import json
 import os
 import time
 from models.entities.player import Player
+from tools.create import player_create
+from tools.mapa import Mapa
 
 
 #Função para definir a classe do personagem
@@ -18,27 +20,6 @@ def definindo_classe(number_class):
     return class_player, class_player_info
 
 
-#Função para criar o personagem
-def player_create():
-    while True:
-        print("Olá jogador! Bem-vindo ao The Game. \nVamos começar montando seu personagem.")
-        nome_player = input("Nome do personagem: ")
-        os.system('cls' if os.name == 'nt' else 'clear')
-        class_player = int(input("Classe do personagem: \n1-Guerreiro\n2-Mago\n3-Arqueiro\n "))
-        os.system('cls' if os.name == 'nt' else 'clear')
-        class_player, class_player_info = definindo_classe(class_player)
-
-        player = Player(nome_player, 1, class_player, class_player_info['hp_max'], class_player_info['dano'])
-
-        print(f"{player.nome}, {player.classe} de nível {player.level}, com {player.hp_max} de HP e {player.dano} de dano.")
-        resposta = input("Continuar ? (s/n): ").lower()
-        if resposta == "s" or resposta == "sim":
-            os.system('cls' if os.name == 'nt' else 'clear')
-            return player
-        else:
-            os.system('cls' if os.name == 'nt' else 'clear')
-
-
 #Funções para salvar e carregar infos do game
 def save_game(player):
     player_infos = {"save01":{
@@ -47,7 +28,8 @@ def save_game(player):
         "classe": player.classe,
         "hp": player.hp,
         "hp_max": player.hp_max,
-        "dano": player.dano
+        "dano": player.dano,
+        "localização": player.localizacao
     }} 
     with open("data/savegame.json", "w", encoding="utf-8") as save:
         json.dump(player_infos, save, ensure_ascii=False, indent=4)
@@ -98,3 +80,11 @@ def menu_batalha():
             time.sleep(1)
 
 
+#Função para perguntar em qual direção o player quer ir
+def menu_mover():
+    while True:
+        direcao = input("Para qual direção você quer ir? (Norte, Sul, Leste, Oeste) \n").lower()
+        with open('data/locais.json', 'r') as locais_file:
+            direcoes = json.load(locais_file)
+        x, y = direcoes[direcao]["X"], direcoes[direcao]["Y"]
+        print(x, y)

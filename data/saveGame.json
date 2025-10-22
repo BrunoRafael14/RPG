@@ -1,10 +1,14 @@
 {
     "save01": {
-        "nome": "Alexiano",
+        "nome": "Bruno",
         "level": 1,
-        "classe": "Arqueiro",
-        "hp": 100,
-        "hp_max": 100,
-        "dano": 20
+        "classe": "Guerreiro",
+        "hp": 120,
+        "hp_max": 120,
+        "dano": 15,
+        "localização": {
+            "X": 0,
+            "Y": 0
+        }
     }
 }

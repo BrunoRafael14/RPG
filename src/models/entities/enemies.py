@@ -1,5 +1,5 @@
 class Enemies():
-    def __init__(self, especie, hp_max, level, dano):
+    def __init__(self, especie:str, hp_max:int, level:int, dano:int):
         self.especie = especie
         self.hp = hp_max
         self.level = level
