@@ -2,13 +2,13 @@
     "save01": {
         "nome": "Bruno",
         "level": 1,
-        "classe": "Guerreiro",
-        "hp": 120,
-        "hp_max": 120,
-        "dano": 15,
+        "classe": "Mago",
+        "hp": 80,
+        "hp_max": 80,
+        "dano": 25,
         "localização": {
             "X": 0,
-            "Y": 0
+            "Y": 4
         }
     }
 }

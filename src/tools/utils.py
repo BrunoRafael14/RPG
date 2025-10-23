@@ -21,7 +21,7 @@ def definindo_classe(number_class):
 
 
 #Funções para salvar e carregar infos do game
-def save_game(player):
+def save_player(player):
     player_infos = {"save01":{
         "nome": player.nome,
         "level": player.level,
@@ -34,10 +34,20 @@ def save_game(player):
     with open("data/savegame.json", "w", encoding="utf-8") as save:
         json.dump(player_infos, save, ensure_ascii=False, indent=4)
 
+def save_game(infos: dict):
+    with open("data/savegame.json", "w", encoding="utf-8") as save:
+        json.dump(infos, save, ensure_ascii=False, indent=4)
+
 def load_game() -> dict:
     with open("data/savegame.json", "r", encoding="utf-8") as load:
         load = json.load(load)
         return load
+    
+def load_position() -> dict:
+    with open("data/savegame.json", "r", encoding="utf-8") as load:
+        load = json.load(load)
+        load_position = load["save01"]["localização"]
+        return load_position
 
 
 
@@ -50,7 +60,7 @@ def menu():
 
     if menu_opcao == 1:
         player = player_create()
-        save_game(player)
+        save_player(player)
         print("Ótimo! Vamos começar a aventura! \nCaregando...")
         time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -82,9 +92,14 @@ def menu_batalha():
 
 #Função para perguntar em qual direção o player quer ir
 def menu_mover():
-    while True:
+
+    try:
         direcao = input("Para qual direção você quer ir? (Norte, Sul, Leste, Oeste) \n").lower()
         with open('data/locais.json', 'r') as locais_file:
             direcoes = json.load(locais_file)
         x, y = direcoes[direcao]["X"], direcoes[direcao]["Y"]
-        print(x, y)
+
+        return x, y
+    except KeyError:
+        print("Direção inválida, tente novamente.")
+
